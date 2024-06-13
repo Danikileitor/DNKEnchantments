@@ -1,2 +1,2 @@
 # DNKEnchantments
-My Enchantments mods for Minecraft Forge
+My custom enchantments mod for Minecraft Forge.

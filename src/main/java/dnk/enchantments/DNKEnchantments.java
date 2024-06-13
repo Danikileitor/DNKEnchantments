@@ -3,6 +3,7 @@ package dnk.enchantments;
 import com.mojang.logging.LogUtils;
 
 import dnk.enchantments.enchantment.ModEnchantments;
+import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

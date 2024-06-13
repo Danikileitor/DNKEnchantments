@@ -1,6 +1,8 @@
 package dnk.enchantments;
 
 import com.mojang.logging.LogUtils;
+
+import dnk.enchantments.enchantment.ModEnchantments;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +29,9 @@ public class DNKEnchantments {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        // Register todas las cosas por aquí
+        ModEnchantments.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

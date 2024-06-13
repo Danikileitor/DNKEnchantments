@@ -21,7 +21,6 @@ gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 /src/test/
-/src/generated/
 run/
 run-data/
 

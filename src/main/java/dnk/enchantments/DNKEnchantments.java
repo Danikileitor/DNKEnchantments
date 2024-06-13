@@ -31,6 +31,7 @@ public class DNKEnchantments {
         modEventBus.addListener(this::commonSetup);
 
         // Register todas las cosas por aquí
+        ModCreativeModeTabs.register(modEventBus);
         ModEnchantments.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
@@ -47,6 +48,8 @@ public class DNKEnchantments {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package dnk.enchantments;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;

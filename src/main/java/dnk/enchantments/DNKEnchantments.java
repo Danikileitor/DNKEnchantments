@@ -5,9 +5,11 @@ import com.mojang.logging.LogUtils;
 import dnk.enchantments.enchantment.ModEnchantments;
 import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -56,9 +58,8 @@ public class DNKEnchantments {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
             for (RegistryObject<Enchantment> encantamiento : ModEnchantments.ENCHANTMENTS.getEntries()) {
-                ItemStack libro = new ItemStack(Items.BOOK);
-                libro.setHoverName(Items.ENCHANTED_BOOK.getName(libro));
-                libro.enchant(encantamiento.get(), encantamiento.get().getMaxLevel());
+                ItemStack libro = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(encantamiento.get(), 1));
+                //libro.setHoverName(Items.ENCHANTED_BOOK.getName(libro));
                 event.accept(libro);
             }
         }

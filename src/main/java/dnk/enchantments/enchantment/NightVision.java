@@ -13,10 +13,15 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = DNKEnchantments.MODID)
 public class NightVision extends Enchantment {
-    public NightVision(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots){
+
+    public NightVision(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot[] pApplicableSlots) {
         super(pRarity, pCategory, pApplicableSlots);
     }
 
+    public NightVision() {
+        super(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+    }
+    
     @Override
     public int getMaxLevel(){
         return 1;

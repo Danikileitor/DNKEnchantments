@@ -5,6 +5,9 @@ import com.mojang.logging.LogUtils;
 import dnk.enchantments.enchantment.ModEnchantments;
 import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -15,6 +18,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegistryObject;
+
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,6 +55,12 @@ public class DNKEnchantments {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
+            for (RegistryObject<Enchantment> encantamiento : ModEnchantments.ENCHANTMENTS.getEntries()) {
+                ItemStack libro = new ItemStack(Items.BOOK);
+                libro.setHoverName(Items.ENCHANTED_BOOK.getName(libro));
+                libro.enchant(encantamiento.get(), encantamiento.get().getMaxLevel());
+                event.accept(libro);
+            }
         }
     }
 

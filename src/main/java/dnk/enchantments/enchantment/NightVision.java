@@ -26,6 +26,11 @@ public class NightVision extends Enchantment {
     public int getMaxLevel(){
         return 1;
     }
+    
+    @Override
+    public boolean isAllowedOnBooks() {
+        return true;
+    }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e){

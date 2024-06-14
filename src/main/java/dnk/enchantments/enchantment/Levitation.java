@@ -37,15 +37,15 @@ public class Levitation extends Enchantment {
         switch (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.LEVITATION.get(),
                 e.player.getItemBySlot(EquipmentSlot.FEET))) {
             case 1:
-                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 210, 0, false, false, false));
+                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 0, false, false, false));
                 break;
 
             case 2:
-                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 210, 50, false, false, false));
+                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 10, false, false, false));
                 break;
 
             case 3:
-                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 210, 100, false, false, false));
+                e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 100, false, false, false));
                 break;
 
             default:

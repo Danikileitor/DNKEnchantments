@@ -35,7 +35,7 @@ public class Levitation extends Enchantment {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e) {
         switch (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.LEVITATION.get(),
-                e.player.getItemBySlot(EquipmentSlot.HEAD))) {
+                e.player.getItemBySlot(EquipmentSlot.FEET))) {
             case 1:
                 e.player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 210, 0, false, false, false));
                 break;

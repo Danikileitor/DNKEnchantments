@@ -19,7 +19,7 @@ public class NightVision extends Enchantment {
     }
 
     public NightVision() {
-        super(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.HEAD});
     }
     
     @Override

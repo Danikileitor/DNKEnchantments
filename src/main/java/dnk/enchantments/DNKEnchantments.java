@@ -58,8 +58,7 @@ public class DNKEnchantments {
         if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
             for (RegistryObject<Enchantment> encantamiento : ModEnchantments.ENCHANTMENTS.getEntries()) {
                 for (int nivel = encantamiento.get().getMinLevel(); nivel <= encantamiento.get().getMaxLevel(); nivel++) {
-                    ItemStack libro = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(encantamiento.get(), nivel));
-                    event.accept(libro);
+                    event.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(encantamiento.get(), nivel)));
                 }
             }
         }

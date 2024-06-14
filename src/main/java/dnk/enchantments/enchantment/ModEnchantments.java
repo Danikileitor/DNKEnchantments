@@ -11,6 +11,7 @@ public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, DNKEnchantments.MODID);
 
     public static final RegistryObject<Enchantment> NIGHTVISION = ENCHANTMENTS.register("nightvision", NightVision::new);
+    public static final RegistryObject<Enchantment> LEVITATION = ENCHANTMENTS.register("levitation", Levitation::new);
 
     public static void register(IEventBus modEventBus) {
         ENCHANTMENTS.register(modEventBus);

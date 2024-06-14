@@ -6,7 +6,6 @@ import dnk.enchantments.enchantment.ModEnchantments;
 import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.EnchantedBookItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.api.distmarker.Dist;

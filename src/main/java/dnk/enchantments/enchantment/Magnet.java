@@ -1,6 +1,8 @@
 package dnk.enchantments.enchantment;
 
 import dnk.enchantments.DNKEnchantments;
+import dnk.enchantments.config.CommonConfigs;
+
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.level.ServerLevel;
@@ -35,6 +37,16 @@ public class Magnet extends Enchantment {
 
     public boolean isAllowedOnBooks() {
         return true;
+    }
+
+    @Override
+    public boolean canEnchant(ItemStack pStack) {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canEnchant(pStack) : false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canApplyAtEnchantingTable(stack): false;
     }
 
     protected static List<Entity> getEntitiesInCircumference(Level world, Player player, double horizontal,

@@ -1,9 +1,11 @@
 package dnk.enchantments.enchantment;
 
 import dnk.enchantments.DNKEnchantments;
+import dnk.enchantments.config.CommonConfigs;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -30,6 +32,16 @@ public class Jump extends Enchantment {
     @Override
     public boolean isAllowedOnBooks() {
         return true;
+    }
+
+    @Override
+    public boolean canEnchant(ItemStack pStack) {
+        return CommonConfigs.ENCHANTMENT_JUMP.get() ? super.canEnchant(pStack) : false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return CommonConfigs.ENCHANTMENT_JUMP.get() ? super.canApplyAtEnchantingTable(stack): false;
     }
 
     @SubscribeEvent

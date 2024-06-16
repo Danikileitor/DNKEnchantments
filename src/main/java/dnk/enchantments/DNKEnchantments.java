@@ -1,13 +1,22 @@
 package dnk.enchantments;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.slf4j.Logger;
+
 import com.mojang.logging.LogUtils;
 
 import dnk.enchantments.enchantment.ModEnchantments;
 import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -18,9 +27,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
-
-import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DNKEnchantments.MODID)
@@ -29,6 +38,9 @@ public class DNKEnchantments {
     public static final String MODID = "dnkenchantments";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static String itemIds = "";
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public static final List<Object> _itemIds = new ArrayList();
 
     public DNKEnchantments() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -47,8 +59,35 @@ public class DNKEnchantments {
         modEventBus.addListener(this::addCreative);
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private static List<Object> idStringToArray(String s, boolean isBlock) {
+        try {
+            IForgeRegistry registry = isBlock ? ForgeRegistries.BLOCKS : ForgeRegistries.ITEMS;
+            List<Object> l = new ArrayList();
+            String[] ss = s.split(",");
+            for (String i : ss) {
+                Object b = null;
+                i = i.trim();
+                if (!i.isEmpty()) {
+                    b = registry.getValue(new ResourceLocation(i));
+                    if (Blocks.AIR == b || Items.AIR == b) {
+                        i = "minecraft:" + i;
+                        b = registry.getValue(new ResourceLocation(i));
+                    }
+                    if (Blocks.AIR != b && Items.AIR != b)
+                        l.add(b);
+                }
+            }
+            return l;
+        } catch (Exception e) {
+            LOGGER.error("idStringToArray", e);
+            return Collections.emptyList();
+        }
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
+        _itemIds.addAll(idStringToArray(itemIds, false));
         LOGGER.info("HELLO FROM COMMON SETUP");
     }
 
@@ -56,8 +95,10 @@ public class DNKEnchantments {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
             for (RegistryObject<Enchantment> encantamiento : ModEnchantments.ENCHANTMENTS.getEntries()) {
-                for (int nivel = encantamiento.get().getMinLevel(); nivel <= encantamiento.get().getMaxLevel(); nivel++) {
-                    event.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(encantamiento.get(), nivel)));
+                for (int nivel = encantamiento.get().getMinLevel(); nivel <= encantamiento.get()
+                        .getMaxLevel(); nivel++) {
+                    event.accept(EnchantedBookItem
+                            .createForEnchantment(new EnchantmentInstance(encantamiento.get(), nivel)));
                 }
             }
         }

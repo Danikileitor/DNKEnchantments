@@ -105,6 +105,7 @@ public class DNKEnchantments {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeModeTabs.DNKFORGE_TAB.get()) {
             for (RegistryObject<Enchantment> encantamiento : ModEnchantments.ENCHANTMENTS.getEntries()) {
+                if (encantamiento.get().isAllowedOnBooks())
                 for (int nivel = encantamiento.get().getMinLevel(); nivel <= encantamiento.get()
                         .getMaxLevel(); nivel++) {
                     event.accept(EnchantedBookItem

@@ -23,6 +23,8 @@ gradle-app.setting
 /src/test/
 run/
 run-data/
+test/
+generated/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

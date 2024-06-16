@@ -35,7 +35,7 @@ public class NightVision extends Enchantment {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e){
         if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.NIGHTVISION.get(), e.player.getItemBySlot(EquipmentSlot.HEAD)) > 0) {
-            MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 30, 100, false, false, false);
+            MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 50, 100, false, false, false);
             e.player.addEffect(playerEffect);
         }
     }

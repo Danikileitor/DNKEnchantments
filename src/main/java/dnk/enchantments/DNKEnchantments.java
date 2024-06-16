@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import dnk.enchantments.config.CommonConfigs;
 import dnk.enchantments.enchantment.ModEnchantments;
 import dnk.enchantments.item.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
@@ -23,7 +24,9 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -53,6 +56,9 @@ public class DNKEnchantments {
         // Register todas las cosas por aquí
         ModCreativeModeTabs.register(modEventBus);
         ModEnchantments.register(modEventBus);
+
+        // Register configs
+        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments.toml");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

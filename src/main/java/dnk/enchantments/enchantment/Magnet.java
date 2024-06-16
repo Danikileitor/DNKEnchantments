@@ -5,12 +5,15 @@ import dnk.enchantments.config.CommonConfigs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -31,7 +34,8 @@ public class Magnet extends Enchantment {
         super(Enchantment.Rarity.COMMON, EnchantmentCategory.ARMOR_CHEST, new EquipmentSlot[] { EquipmentSlot.CHEST });
     }
 
-    public int m_6586_() {
+    @Override
+    public int getMaxLevel() {
         return 3;
     }
 
@@ -40,13 +44,28 @@ public class Magnet extends Enchantment {
     }
 
     @Override
-    public boolean canEnchant(ItemStack pStack) {
-        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canEnchant(pStack) : false;
+    public boolean isCurse() {
+        return false;
     }
 
     @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canApplyAtEnchantingTable(stack): false;
+    public boolean isDiscoverable() {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get();
+    }
+
+    @Override
+    public boolean isTradeable() {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get();
+    }
+
+    @Override
+    public boolean isTreasureOnly() {
+        return false;
+    }
+
+    @Override
+    public boolean allowedInCreativeTab(Item book, Set<EnchantmentCategory> allowedCategories) {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.allowedInCreativeTab(book, allowedCategories) : false;
     }
 
     protected static List<Entity> getEntitiesInCircumference(Level world, Player player, double horizontal,

@@ -37,11 +37,11 @@ public class Jump extends Enchantment {
         switch (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.JUMP.get(),
                 e.player.getItemBySlot(EquipmentSlot.FEET))) {
             case 1:
-                e.player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 0, false, false, false));
+                e.player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 10, false, false, false));
                 break;
 
             case 2:
-                e.player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 10, false, false, false));
+                e.player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 50, false, false, false));
                 break;
 
             case 3:

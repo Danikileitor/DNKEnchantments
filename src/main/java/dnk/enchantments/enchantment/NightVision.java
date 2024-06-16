@@ -31,7 +31,17 @@ public class NightVision extends Enchantment {
     
     @Override
     public boolean isAllowedOnBooks() {
-        return true;
+        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get();
+    }
+
+    @Override
+    public boolean canEnchant(ItemStack pStack) {
+        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? super.canEnchant(pStack) : false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? super.canApplyAtEnchantingTable(stack): false;
     }
 
     @SubscribeEvent

@@ -36,7 +36,17 @@ public class Magnet extends Enchantment {
     }
 
     public boolean isAllowedOnBooks() {
-        return true;
+        return CommonConfigs.ENCHANTMENT_MAGNET.get();
+    }
+
+    @Override
+    public boolean canEnchant(ItemStack pStack) {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canEnchant(pStack) : false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.canApplyAtEnchantingTable(stack): false;
     }
 
     protected static List<Entity> getEntitiesInCircumference(Level world, Player player, double horizontal,

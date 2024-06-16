@@ -1,10 +1,13 @@
 package dnk.enchantments.enchantment;
 
+import java.util.Set;
+
 import dnk.enchantments.DNKEnchantments;
 import dnk.enchantments.config.CommonConfigs;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -31,7 +34,22 @@ public class Jump extends Enchantment {
 
     @Override
     public boolean isAllowedOnBooks() {
-        return true;
+        return CommonConfigs.ENCHANTMENT_JUMP.get();
+    }
+
+    @Override
+    public boolean allowedInCreativeTab(Item book, Set<EnchantmentCategory> allowedCategories) {
+        return CommonConfigs.ENCHANTMENT_JUMP.get() ? super.allowedInCreativeTab(book, allowedCategories) : false;
+    }
+
+    @Override
+    public boolean canEnchant(ItemStack pStack) {
+        return CommonConfigs.ENCHANTMENT_JUMP.get() ? super.canEnchant(pStack) : false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return CommonConfigs.ENCHANTMENT_JUMP.get() ? super.canApplyAtEnchantingTable(stack): false;
     }
 
     @SubscribeEvent

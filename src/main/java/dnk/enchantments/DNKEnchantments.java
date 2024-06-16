@@ -48,13 +48,14 @@ public class DNKEnchantments {
     public static final List<Object> _itemIds = new ArrayList();
 
     public DNKEnchantments() {
+        // Register configs
+        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments-common.toml");
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         
-        // Register configs
-        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments-common.toml");
 
         // Register todas las cosas por aquí
         ModCreativeModeTabs.register(modEventBus);

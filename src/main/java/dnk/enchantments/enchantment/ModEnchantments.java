@@ -13,7 +13,7 @@ public class ModEnchantments {
     public static final RegistryObject<Enchantment> NIGHTVISION = ENCHANTMENTS.register("nightvision", NightVision::new);
     public static final RegistryObject<Enchantment> LEVITATION = ENCHANTMENTS.register("levitation", Levitation::new);
     public static final RegistryObject<Enchantment> JUMP = ENCHANTMENTS.register("jump", Jump::new);
-    public static final RegistryObject<Enchantment> MAGNET = ENCHANTMENTS.register("magnet", Jump::new);
+    public static final RegistryObject<Enchantment> MAGNET = ENCHANTMENTS.register("magnet", Magnet::new);
 
     public static void register(IEventBus modEventBus) {
         ENCHANTMENTS.register(modEventBus);

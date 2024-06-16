@@ -52,13 +52,13 @@ public class DNKEnchantments {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        
+        // Register configs
+        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments.toml");
 
         // Register todas las cosas por aquí
         ModCreativeModeTabs.register(modEventBus);
         ModEnchantments.register(modEventBus);
-
-        // Register configs
-        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments.toml");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

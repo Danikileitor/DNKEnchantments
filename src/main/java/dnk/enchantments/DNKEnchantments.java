@@ -54,7 +54,7 @@ public class DNKEnchantments {
         modEventBus.addListener(this::commonSetup);
         
         // Register configs
-        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments.toml");
+        ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfigs.SPEC, "DNKEnchantments-common.toml");
 
         // Register todas las cosas por aquí
         ModCreativeModeTabs.register(modEventBus);

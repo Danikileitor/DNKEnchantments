@@ -11,12 +11,17 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, DNKEnchantments.MODID);
 
-    public static final RegistryObject<Enchantment> NIGHTVISION = CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? ENCHANTMENTS.register("nightvision", NightVision::new) : null;
-    public static final RegistryObject<Enchantment> LEVITATION = CommonConfigs.ENCHANTMENT_LEVITATION.get() ? ENCHANTMENTS.register("levitation", Levitation::new) : null;
-    public static final RegistryObject<Enchantment> JUMP = CommonConfigs.ENCHANTMENT_JUMP.get() ? ENCHANTMENTS.register("jump", Jump::new) : null;
-    public static final RegistryObject<Enchantment> MAGNET = CommonConfigs.ENCHANTMENT_MAGNET.get() ? ENCHANTMENTS.register("magnet", Jump::new) : null;
+    public static final RegistryObject<Enchantment> NIGHTVISION = ENCHANTMENTS.register("nightvision", NightVision::new);
+    public static final RegistryObject<Enchantment> LEVITATION = ENCHANTMENTS.register("levitation", Levitation::new);
+    public static final RegistryObject<Enchantment> JUMP = ENCHANTMENTS.register("jump", Jump::new);
+    public static final RegistryObject<Enchantment> MAGNET = ENCHANTMENTS.register("magnet", Jump::new);
 
     public static void register(IEventBus modEventBus) {
+        if (!CommonConfigs.ENCHANTMENT_NIGHTVISION.get()) modEventBus.unregister(NIGHTVISION);
+        if (!CommonConfigs.ENCHANTMENT_LEVITATION.get()) modEventBus.unregister(LEVITATION);
+        if (!CommonConfigs.ENCHANTMENT_JUMP.get()) modEventBus.unregister(JUMP);
+        if (!CommonConfigs.ENCHANTMENT_MAGNET.get()) modEventBus.unregister(MAGNET);
+
         ENCHANTMENTS.register(modEventBus);
     }
 }

@@ -34,16 +34,6 @@ public class Levitation extends Enchantment {
         return true;
     }
 
-    @Override
-    public boolean canEnchant(ItemStack pStack) {
-        return CommonConfigs.ENCHANTMENT_LEVITATION.get() ? super.canEnchant(pStack) : false;
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        return CommonConfigs.ENCHANTMENT_LEVITATION.get() ? super.canApplyAtEnchantingTable(stack): false;
-    }
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e) {
         switch (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.LEVITATION.get(),

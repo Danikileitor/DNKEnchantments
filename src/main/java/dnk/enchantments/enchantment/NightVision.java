@@ -34,16 +34,6 @@ public class NightVision extends Enchantment {
         return true;
     }
 
-    @Override
-    public boolean canEnchant(ItemStack pStack) {
-        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? super.canEnchant(pStack) : false;
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? super.canApplyAtEnchantingTable(stack): false;
-    }
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e){
         if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.NIGHTVISION.get(), e.player.getItemBySlot(EquipmentSlot.HEAD)) > 0) {

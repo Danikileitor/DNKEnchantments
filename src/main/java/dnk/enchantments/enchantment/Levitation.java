@@ -56,11 +56,6 @@ public class Levitation extends Enchantment {
         return false;
     }
 
-    @Override
-    public boolean allowedInCreativeTab(Item book, Set<EnchantmentCategory> allowedCategories) {
-        return CommonConfigs.ENCHANTMENT_LEVITATION.get() ? super.allowedInCreativeTab(book, allowedCategories) : false;
-    }
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e) {
         switch (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.LEVITATION.get(),

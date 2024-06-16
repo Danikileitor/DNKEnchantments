@@ -56,11 +56,6 @@ public class NightVision extends Enchantment {
         return false;
     }
 
-    @Override
-    public boolean allowedInCreativeTab(Item book, Set<EnchantmentCategory> allowedCategories) {
-        return CommonConfigs.ENCHANTMENT_NIGHTVISION.get() ? super.allowedInCreativeTab(book, allowedCategories) : false;
-    }
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent e){
         if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.NIGHTVISION.get(), e.player.getItemBySlot(EquipmentSlot.HEAD)) > 0) {

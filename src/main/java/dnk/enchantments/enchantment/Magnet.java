@@ -63,11 +63,6 @@ public class Magnet extends Enchantment {
         return false;
     }
 
-    @Override
-    public boolean allowedInCreativeTab(Item book, Set<EnchantmentCategory> allowedCategories) {
-        return CommonConfigs.ENCHANTMENT_MAGNET.get() ? super.allowedInCreativeTab(book, allowedCategories) : false;
-    }
-
     protected static List<Entity> getEntitiesInCircumference(Level world, Player player, double horizontal,
             double vertical, boolean select) {
         List<?> list = world.getEntities((Entity) player,

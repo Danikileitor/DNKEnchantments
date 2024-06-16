@@ -38,6 +38,8 @@ public class DNKEnchantments {
     public static final String MODID = "dnkenchantments";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    //Esto es para MAGNET
     public static String itemIds = "";
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static final List<Object> _itemIds = new ArrayList();
@@ -59,6 +61,7 @@ public class DNKEnchantments {
         modEventBus.addListener(this::addCreative);
     }
 
+    //Esto es para MAGNET
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static List<Object> idStringToArray(String s, boolean isBlock) {
         try {
@@ -87,7 +90,7 @@ public class DNKEnchantments {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
-        _itemIds.addAll(idStringToArray(itemIds, false));
+        _itemIds.addAll(idStringToArray(itemIds, false));//Esto es para MAGNET
         LOGGER.info("HELLO FROM COMMON SETUP");
     }
 

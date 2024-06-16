@@ -109,7 +109,7 @@ public class Magnet extends Enchantment {
                 if (!TickEvent.Phase.END.equals(e.phase))
                     return;
                 world1 = e.player.getCommandSenderWorld();
-                list1 = getEntitiesInCircumference(world1, e.player, 10.0D, 10.0D, false);
+                list1 = getEntitiesInCircumference(world1, e.player, 10, 10, false);
                 if (null == list1)
                     return;
                 startPickup(world1, e.player, list1, false);
@@ -118,7 +118,7 @@ public class Magnet extends Enchantment {
                 if (!TickEvent.Phase.END.equals(e.phase))
                     return;
                 world2 = e.player.getCommandSenderWorld();
-                list2 = getEntitiesInCircumference(world2, e.player, 50.0D, 50.0D, false);
+                list2 = getEntitiesInCircumference(world2, e.player, 50, 50, false);
                 if (null == list2)
                     return;
                 startPickup(world2, e.player, list2, false);
@@ -127,7 +127,7 @@ public class Magnet extends Enchantment {
                 if (!TickEvent.Phase.END.equals(e.phase))
                     return;
                 world3 = e.player.getCommandSenderWorld();
-                list3 = getEntitiesInCircumference(world3, e.player, 100.0D, 100.0D, false);
+                list3 = getEntitiesInCircumference(world3, e.player, 100, 100, false);
                 if (null == list3)
                     return;
                 startPickup(world3, e.player, list3, false);

@@ -1,13 +1,10 @@
 package dnk.enchantments.enchantment;
 
-import java.util.Set;
-
 import dnk.enchantments.DNKEnchantments;
 import dnk.enchantments.config.CommonConfigs;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
